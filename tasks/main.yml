@@ -1,2 +1,12 @@
 ---
 # tasks file for rds-ansible-role
+
+- include: local.yml
+  when: db_mode == "local"
+
+- include: remote.yml
+  when: db_mode == "remote"
+
+- name: "including mysql.yml ..."
+  include: mysql.yml
+  when: db_flavor == "mysql" or db_flavor == "rds-mysql"

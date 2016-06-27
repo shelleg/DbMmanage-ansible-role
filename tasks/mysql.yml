@@ -1,0 +1,38 @@
+---
+- debug: var=db_flavor 
+
+- name: 'make sure mysql are installed'
+  yum: name=MySQL-python state=installed
+  when: ansible_os_family == "RedHat"
+  become: true
+
+- name: "Create Database for appllicationi(s)"
+  mysql_db: >
+    name={{ item.app_database_name }}
+    login_host={{ item.database_hostname }}
+    login_password={{ database_admin_password }}
+    login_user={{ database_admin_user  }}
+    encoding={{ item.database_encoding }}
+    state=present
+  with_items: "{{ app_db_credentials }}"
+
+- name: "Create users for application(s)"
+  mysql_user: >
+   host={{ansible_ssh_host}}
+   login_host={{ item.database_hostname }}
+   login_user={{ database_admin_user }}
+   login_password={{ database_admin_password }}
+   name={{ item.database_admin_user }}
+   password={{ item.app_database_password }}
+   priv={{ item.app_database_name }}.*:ALL
+   state=present
+  with_items: "{{ app_db_credentials }}"
+
+- name: "Make sure we do not have unwanted users configured (with wrong access)"
+  debug: "This in future will clean all root@'%' etc from {{ db_flavor }}"
+
+- name: "Set facts for app"
+  include: artifactory.yml
+  with_items: "{{ app_db_credentials }}"
+  when: item.app_name == "artifactory"
+  

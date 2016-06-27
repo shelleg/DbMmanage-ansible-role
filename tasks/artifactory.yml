@@ -1,0 +1,15 @@
+---
+- name: "setting facts for Artifcatory"
+  set_fact:
+    artifactory_db_host: {{ item.database_hostname }}
+    artifactory_database_encoding: {{ item.database_encoding }}
+    artifactory_db_username: {{ item.database_admin_user}}
+    artifactory_db_password: {{ item.app_database_password }}
+  with_items: app_db_credentials
+  when: app_db_credentials.app_name == "artifactory"
+
+- debug: var="{{ artifactory_database_hostname }}" 
+- debug: var="{{ artifactory_db_host }}"
+- debug: var="{{ artifactory_database_encoding }}"
+- debug: var="{{ artifactory_db_username }}"
+- debug: var="{{ artifactory_db_password }}"

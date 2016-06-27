@@ -1,0 +1,5 @@
+---
+- debug: var="{{ database_admin_user }}"
+- debug: var="{{ database_admin_password }}"
+- debug: var="{{ database_hostname }}"
+- debug: var="{{ app_db_credentials }}"

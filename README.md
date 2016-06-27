@@ -31,6 +31,8 @@ Including an example of how to use your role (for instance, with variables passe
          - { role: rds-ansible-role, db_mode: remote, db_flavor: rds }
 				 - { role: <i need a db + user > } 
 
+TODO: add support for ansible vault
+
 License
 -------
 
