@@ -1,2 +1,2 @@
 ---
-- debug: msg="This is just a place holder for mariadb remote mode"
+- debug: msg="This is just a place holder for postgresql remote mode"

@@ -1,12 +1,13 @@
 ---
-- debug: var=db_flavor 
+# implemented for Audiocodes with mysql-rds ... 
+- debug: msg="Running in {{ db_mode }} on {{ db_flavor }}"
 
-- name: 'make sure mysql are installed'
+- name: 'make sure mysql libs are installed'
   yum: name=MySQL-python state=installed
   when: ansible_os_family == "RedHat"
   become: true
 
-- name: "Create Database for appllicationi(s)"
+- name: "Create Database for appllicationi(s) iterrate over app_db_credentials"
   mysql_db: >
     name={{ item.app_database_name }}
     login_host={{ item.database_hostname }}
@@ -29,10 +30,11 @@
   with_items: "{{ app_db_credentials }}"
 
 - name: "Make sure we do not have unwanted users configured (with wrong access)"
-  debug: "This in future will clean all root@'%' etc from {{ db_flavor }}"
+  debug: "This in future will clean all root@'%' etc from {{ db_flavor }} - move this to {{ db_flavor }}-hardeninig.yml"
 
 - name: "Set facts for app"
   include: artifactory.yml
   with_items: "{{ app_db_credentials }}"
+  # will be removed in the future once all apps are in place and we can say {{ item.app_name }}.yml
   when: item.app_name == "artifactory"
   

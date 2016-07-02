@@ -1,2 +1,10 @@
 ---
 # handlers file for rds-ansible-role
+
+# mariadb && mysql
+- name: restart mysql
+  service: name=mysql state=restarted
+
+- name: restart mariadb
+  service: name=mysql state=restarted
+

@@ -1,12 +1,10 @@
+
+# tasks file for DBmanage-ansible-role
 ---
-# tasks file for rds-ansible-role
 
-- include: local.yml
-  when: db_mode == "local"
+- name: "Use the defined tasks based on db_mode ({{ db_mode }}) and db_flavor ({{ db_flavor }})"
+  include: "{{ db_mode }}-{{ db_flavor }}.yml"
+  when: ( db_mode is defined and db_flavor is defined ) or ((ansible_distribution == "CentOS" and ansible_distribution_major_version == "6") or (ansible_distribution == "Debian" and ansible_distribution_major_version == "7"))
 
-- include: remote.yml
-  when: db_mode == "remote"
-
-- name: "including mysql.yml ..."
-  include: mysql.yml
-  when: db_flavor == "mysql" or db_flavor == "rds-mysql"
+- include: "secure-{{ db_flavor }}.yml"
+  when: secure_installation and db_root_password is defined
