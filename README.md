@@ -10,7 +10,8 @@ so if you don't want anything from the role but a databse installed and takje it
 Requirements
 ------------
 
-**Ansible >= 2.1** 
+**Ansible >= 2.1**
+
 Considering you have MySql/MariaDB/Postgresql etc this role will create install the database / alternatively will connect to a remote database server and create the scheme/user/etc.
 
 Role Variables
@@ -20,7 +21,6 @@ db_mode: `local` (default mode) || `remote` - when local all schemas / users etc
 db_flavor: `mariadb` (default flavor) || `mysql` || `postgresql` || `rds` || `other` - when mysql  manager will work against mysql and the same for other engines.
 
 **Please note** this is the first version and will most definitely get refactored in the future.
-
 
 Dependencies
 ------------
@@ -45,6 +45,10 @@ or for more options:
 	     - { role: sonar-ansible-role } 
 
 TODO: add support for ansible vault
+
+Supported OS's
+--------------
+Tested with **Centos 7** and **Ubuntu 160.4** see vagrant boxes used.
 
 Thanks to
 ---------
