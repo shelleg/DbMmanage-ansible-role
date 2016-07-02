@@ -1,4 +1,4 @@
-DbMmanage Ansible role
+dbmmanage Ansible role
 ======================
 
 This role is designed to act as a all-in-one database operations role which means it serves all the services requiring a 
