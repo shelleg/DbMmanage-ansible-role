@@ -1,0 +1,3 @@
+---
+- name: Install postgresql server
+  debug: msg="Not implemented yet"
