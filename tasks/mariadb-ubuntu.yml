@@ -15,14 +15,21 @@
   shell: export DEBIAN_FRONTEND=noninteractive
   changed_when: false
 
+  # a bit unstable sometimes returns 404
 - name: Add apt-key
   apt_key: id=F1656F24C74CD1D8 state=present keyserver=ha.pool.sks-keyservers.net
+  retries: 3
+  delay: 10
+  tags:
+    - key
 
 - name: Install MariaDB
   apt: pkg={{ item }} state=present allow_unauthenticated=yes
   with_items:
     - mariadb-server
     - mariadb-client
+  tags:
+    - pkg
 
 - name: Install MySQLdb Python package for secure installations.
   apt: pkg=python-mysqldb state=present
