@@ -5,27 +5,5 @@ db_mode: local
 db_flavor: mariadb
 
 database_admin_user: "root" 
-database_admin_password: "root" 
+database_admin_password: ""
 database_hostname: "localhost"
-
-app_db_credentials:
-   - {
-    app_name: "artifactory",
-    database_hostname: "localhost",
-    database_admin_user: "root",
-    database_admin_password: "root",
-    app_database_name: "artifactory-default",
-    app_database_user: "artifactory",
-    app_database_password: "artifactory",
-    database_encoding: "utf8"
-    }
-#  - { app_name: "gerrit", database_hostname: "localhost", database_admin_user: "root", database_admin_password: "root", app_database_name: "gerrit-default", app_database_user: "gerrit", app_database_password: "gerrit" }
-
-
-# mariadb specific: took pattern from https://github.com/PCextreme/ansible-role-mariadb
-mariadb_version: 10.0
-mariadb_conf_tpl: change_me
-mariadb_conf_file: settings.cnf
-
-# secure-{{ db_flavor }}.yml default to false
-secure_installation: false

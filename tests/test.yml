@@ -1,5 +1,37 @@
 ---
-- hosts: localhost
+- include: ../playbook.yml
+
+- hosts: all
   remote_user: root
-  roles:
-    - rds-ansible-role
+  become: true
+  become_user: root
+
+  pre_tasks:
+    - include_vars: ../defaults/main.yml
+
+  tasks: # test it ...
+
+    - name: "Create a my.cnf file in order to test mysql cli connectivity"
+      template: src=../templates/my.cnf.j2 dest=/root/.my.cnf owner=root group=root mode=0644
+      tags:
+        - test
+
+    - name: "Run some sql command and return exist status"
+      shell: mysql -e 'show databases;'
+      register: command_result
+      tags:
+        - test
+
+    - assert:
+        that:
+          - command_result.rc != true
+
+    - name: "debug command_resut output..."
+      debug: var=command_result
+      tags:
+        - test
+
+    - name: "cleanup my.cnf"
+      file: path=/root/.my.cnf state=absent
+      tags:
+        - test

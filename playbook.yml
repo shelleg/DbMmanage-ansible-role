@@ -4,6 +4,6 @@
   become_user: root
 
   roles:
-  - { role: ., db_mode: local, db_flavor: mariadb  } # will yield a mariadb with root user (no password)
-  #- { role: ., db_flavor: postgresql  }              # will yield "Not implemented yet"
-  #- { role: ., db_flavor: mysql  }                   # will yield "Not implemented yet"
+    - { role: ., db_mode: local, db_flavor: mariadb  } # will yield a mariadb with root user (no password)
+    #- { role: ., db_flavor: postgresql  }              # will yield "Not implemented yet"
+    #- { role: ., db_flavor: mysql  }                   # will yield "Not implemented yet"

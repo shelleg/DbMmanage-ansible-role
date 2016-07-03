@@ -1,0 +1,9 @@
+# mariadb specific: took pattern from https://github.com/PCextreme/ansible-role-mariadb
+mysql_version: 10.0
+mysql_conf_tpl: change_me
+mysql_conf_file: settings.cnf
+
+# secure-{{ db_flavor }}.yml default to false
+secure_installation: false
+
+# see ../vars for mariadb/mysql/postgresql etc var files
