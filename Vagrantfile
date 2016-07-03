@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
         :box => "geerlingguy/centos6"
       },
       {
-        :name => "ubutnu1604",
+        :name => "ubuntu1604",
         :box => "bento/ubuntu-16.04"
       },
       {
