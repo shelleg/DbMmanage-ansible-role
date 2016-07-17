@@ -1,13 +1,21 @@
 ---
 app_db_credentials:
-   - {
-    app_name: "artifactory",
-    database_hostname: "localhost",
-    database_admin_user: "root",
-    database_admin_password: "root",
-    app_database_name: "artifactory-default",
-    app_database_user: "artifactory",
-    app_database_password: "artifactory",
-    database_encoding: "utf8"
-    }
+   -  { app_name: "artifactory",
+        database_hostname: "localhost",
+        database_admin_user: "root",
+        database_admin_password: "",
+        database_name: "artifactory-default",
+        database_user: "artifactory",
+        database_password: "artifactory",
+        database_encoding: "utf8"
+      }
+   -  { app_name: "gerrit",
+        database_hostname: "localhost",
+        database_admin_user: "root",
+        database_admin_password: "",
+        database_name: "gerrit-default",
+        database_user: "gerrit",
+        database_password: "gerrit",
+        database_encoding: "utf8"
+      }
 #  - { app_name: "gerrit", database_hostname: "localhost", database_admin_user: "root", database_admin_password: "root", app_database_name: "gerrit-default", app_database_user: "gerrit", app_database_password: "gerrit" }
