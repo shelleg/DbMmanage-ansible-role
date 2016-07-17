@@ -1,5 +1,4 @@
-
-# tasks file for DBmanage-ansible-role
+# main tasks file for ansible-role-dbmanage
 ---
 
 - include_vars: "{{ item }}"

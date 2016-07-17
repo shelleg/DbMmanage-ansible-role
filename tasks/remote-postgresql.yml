@@ -1,2 +1,3 @@
+# tasks when remote-postgresql ansible-role-dbmanage
 ---
 - debug: msg="This is just a place holder for postgresql remote mode"

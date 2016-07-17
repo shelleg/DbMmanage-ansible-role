@@ -1,3 +1,4 @@
+# tasks when artifactory ansible-role-dbmanage
 ---
 
 - debug: var="{{ artifactory_database_hostname }}"

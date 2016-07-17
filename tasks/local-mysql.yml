@@ -1,3 +1,4 @@
+# tasks when local-mysql ansible-role-dbmanage
 ---
 - name: Install mysql server
   debug: msg="Not implemented yet"

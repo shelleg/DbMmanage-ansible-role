@@ -1,5 +1,5 @@
 ---
-# handlers file for rds-ansible-role
+# handlers file for ansible-role-dbmanage
 
 # mariadb && mysql
 - name: restart mysql

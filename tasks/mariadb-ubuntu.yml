@@ -1,3 +1,4 @@
+# tasks when mariadb-ubuntu ansible-role-dbmanage
 ---
 - name: Add repo file
   template: src=mariadb_ubuntu.list.j2 dest=/etc/apt/sources.list.d/mariadb.list owner=root group=root mode=0644

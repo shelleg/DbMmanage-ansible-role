@@ -1,3 +1,4 @@
+# tasks when local-postgresql ansible-role-dbmanage
 ---
 - name: Install postgresql server
   debug: msg="Not implemented yet"

@@ -1,5 +1,5 @@
 ---
-# defaults file for rds-ansible-role
+# defaults file for ansible-role-dbmanage
 
 db_mode: local
 db_flavor: mariadb
